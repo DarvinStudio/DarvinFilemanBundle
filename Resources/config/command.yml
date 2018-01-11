@@ -1,0 +1,21 @@
+parameters:
+    darvin_fileman.command.pull.class: Darvin\Fileman\Command\PullCommand
+    darvin_fileman.command.pull.name:  fileman:pull
+
+    darvin_fileman.command.push.class: Darvin\Fileman\Command\PushCommand
+    darvin_fileman.command.push.name:  fileman:push
+
+services:
+    darvin_fileman.command.pull:
+        class: "%darvin_fileman.command.pull.class%"
+        arguments:
+            - "%darvin_fileman.command.pull.name%"
+        tags:
+            - { name: console.command }
+
+    darvin_fileman.command.push:
+        class: "%darvin_fileman.command.push.class%"
+        arguments:
+            - "%darvin_fileman.command.push.name%"
+        tags:
+            - { name: console.command }
